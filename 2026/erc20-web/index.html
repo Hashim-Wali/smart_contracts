@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ERC-20 Token Dashboard</title>
+
+  <!-- Load ethers.js from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.10.0/dist/ethers.umd.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+    }
+    button {
+      padding: 10px;
+      margin-top: 10px;
+    }
+    p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>My ERC-20 Token</h2>
+
+  <button onclick="connectWallet()">Connect MetaMask</button>
+
+  <h3>Token Info</h3>
+  <p><strong>Name:</strong> <span id="name">-</span></p>
+  <p><strong>Symbol:</strong> <span id="symbol">-</span></p>
+  <p><strong>Total Supply:</strong> <span id="supply">-</span></p>
+
+  <h3>Your Balance</h3>
+  <p><strong>Address:</strong> <span id="address">-</span></p>
+  <p><strong>Balance:</strong> <span id="balance">-</span></p>
+
+  <script src="script.js"></script>
+</body>
+</html>
