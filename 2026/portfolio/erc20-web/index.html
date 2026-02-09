@@ -1,42 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>ERC-20 Token Dashboard</title>
+  <meta charset="UTF-8" />
+  <title>HashCoin dApp</title>
 
-  <!-- Load ethers.js from CDN -->
+  <!-- Correct CSS filename -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Ethers.js MUST load first -->
   <script src="https://cdn.jsdelivr.net/npm/ethers@6.10.0/dist/ethers.umd.min.js"></script>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 600px;
-      margin: 40px auto;
-    }
-    button {
-      padding: 10px;
-      margin-top: 10px;
-    }
-    p {
-      margin: 5px 0;
-    }
-  </style>
+  <!-- Your app logic -->
+  <script defer src="script.js"></script>
 </head>
+
 <body>
 
-  <h2>My ERC-20 Token</h2>
+  <div class="container">
+    <h1>🪙 HashCoin (HSH)</h1>
 
-  <button onclick="connectWallet()">Connect MetaMask</button>
+    <button id="connectBtn">Connect MetaMask</button>
 
-  <h3>Token Info</h3>
-  <p><strong>Name:</strong> <span id="name">-</span></p>
-  <p><strong>Symbol:</strong> <span id="symbol">-</span></p>
-  <p><strong>Total Supply:</strong> <span id="supply">-</span></p>
+    <div id="walletInfo" class="card hidden">
+      <p><strong>Wallet:</strong> <span id="wallet"></span></p>
+      <p><strong>Network:</strong> <span id="network"></span></p>
+    </div>
 
-  <h3>Your Balance</h3>
-  <p><strong>Address:</strong> <span id="address">-</span></p>
-  <p><strong>Balance:</strong> <span id="balance">-</span></p>
+    <div class="card">
+      <p><strong>Name:</strong> <span id="tokenName">-</span></p>
+      <p><strong>Symbol:</strong> <span id="tokenSymbol">-</span></p>
+      <p><strong>Total Supply:</strong> <span id="totalSupply">-</span></p>
+      <p><strong>Your Balance:</strong> <span id="balance">-</span></p>
+    </div>
 
-  <script src="script.js"></script>
+    <div class="card">
+      <h2>Transfer Tokens</h2>
+      <input id="toAddress" placeholder="Recipient address" />
+      <input id="transferAmount" placeholder="Amount" />
+      <button id="transferBtn">Transfer</button>
+    </div>
+
+    <div class="card">
+      <h2>Burn Tokens</h2>
+      <input id="burnAmount" placeholder="Amount" />
+      <button id="burnBtn">Burn</button>
+    </div>
+
+    <div class="card owner-only hidden">
+      <h2>Owner Controls</h2>
+
+      <input id="mintTo" placeholder="Mint to address" />
+      <input id="mintAmount" placeholder="Amount" />
+      <button id="mintBtn">Mint</button>
+
+      <button id="pauseBtn">Pause</button>
+      <button id="unpauseBtn">Unpause</button>
+    </div>
+
+    <p id="status"></p>
+  </div>
+
 </body>
 </html>
+
